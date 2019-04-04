@@ -1,0 +1,27 @@
+{% extends 'layout/theme.html' %}
+
+{% block body %}
+<div class="container">
+    {% comment %} jumbo {% endcomment %}
+
+    <div class="jumbotron">
+         <div class="container">
+             <h1 class="display-3">{{pic.title}}</h1>
+             <img src="{{pic.image.url}}" class="img-fluid">
+         </div>
+    </div>
+</div>
+    
+{% endblock body %}
+
+    
+
+{% block css %}
+    
+{% endblock css %}
+    
+
+{% block js %}
+
+{% endblock js %}
+    

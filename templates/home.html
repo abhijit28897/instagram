@@ -1,0 +1,52 @@
+{% extends 'layout/theme.html' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+           
+            {% for pic in pictures %}
+             <div class="col-md-4"
+
+{% comment %} card-overlay {% endcomment %}
+
+                <div class="card bg-dark text-white">
+                  <img class="card-img" src="{{pic.image.url}}">
+                  <div class="card-img-overlay">
+                    <h4 class="card-title">{{pic.title}}</h4>
+                    <a href="/home/{{pic.id}}" class="btn btn-primary">visit</a>
+                  </div>
+                </div>
+            </div>    
+             {% endfor %}
+        </div>
+    </div>
+    
+ <div class="pagination">
+    <span class="step-links">
+        {% if pictures.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ pictures.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ pictures.number }} of {{ pictures.paginator.num_pages }}.
+        </span>
+
+        {% if pictures.has_next %}
+            <a href="?page={{ pictures.next_page_number }}">next</a>
+            <a href="?page={{ pictures.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock body %}
+    
+
+{% block css %}
+    
+{% endblock css %}
+    
+
+{% block js %}
+
+{% endblock js %}
+    
